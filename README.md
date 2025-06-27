@@ -44,19 +44,18 @@ napari-nifti-viewer is a comprehensive napari plugin specifically designed for r
 - Real-time data loading
 - Seamless napari integration
 
-## Screenshots
+## Interface
 
-### File Overview Tab
-![File Overview](assets/file_overview.png)
-*Displays basic file information and data statistics*
+The plugin provides a clean, organized interface with three main tabs:
 
-### Detailed Information Tab
-![Detailed Info](assets/detailed_info.png)
-*Shows complete NIfTI header fields and metadata*
+### 📋 File Overview Tab
+Displays basic file information and data statistics including file size, format, data shape, and statistical measures.
 
-### Label Analysis Tab
-![Label Analysis](assets/label_analysis.png)
-*Intelligent label detection and statistical analysis*
+### 📊 Detailed Information Tab  
+Shows complete NIfTI header fields and metadata in an organized table format, alongside full JSON metadata export.
+
+### 🏷️ Label Analysis Tab
+Provides intelligent label detection and statistical analysis with automatic identification of label images and distribution analysis.
 
 ## Installation
 
@@ -67,7 +66,7 @@ pip install napari-nifti-viewer
 
 ### From Source
 ```bash
-git clone https://github.com/qyhohh/napari-nifti-viewer.git
+git clone https://github.com/yohanchiu/napari-nifti-viewer.git
 cd napari-nifti-viewer
 pip install -e .
 ```
@@ -129,7 +128,7 @@ The plugin allows you to export complete metadata including:
 
 ```bash
 # Clone the repository
-git clone https://github.com/qyhohh/napari-nifti-viewer.git
+git clone https://github.com/yohanchiu/napari-nifti-viewer.git
 cd napari-nifti-viewer
 
 # Create virtual environment
@@ -174,9 +173,9 @@ If you use this plugin in your research, please consider citing:
 ```bibtex
 @software{napari_nifti_viewer,
   title={napari-nifti-viewer: Comprehensive NIfTI Analysis for napari},
-  author={Your Name},
+  author={Qiu Yuheng},
   year={2024},
-  url={https://github.com/qyhohh/napari-nifti-viewer}
+  url={https://github.com/yohanchiu/napari-nifti-viewer}
 }
 ```
 
@@ -188,9 +187,9 @@ If you use this plugin in your research, please consider citing:
 
 ## Support
 
-- 📖 [Documentation](https://github.com/qyhohh/napari-nifti-viewer/wiki)
-- 🐛 [Issue Tracker](https://github.com/qyhohh/napari-nifti-viewer/issues)
-- 💬 [Discussions](https://github.com/qyhohh/napari-nifti-viewer/discussions)
+- 📖 [Documentation](https://github.com/yohanchiu/napari-nifti-viewer/wiki)
+- 🐛 [Issue Tracker](https://github.com/yohanchiu/napari-nifti-viewer/issues)
+- 💬 [Discussions](https://github.com/yohanchiu/napari-nifti-viewer/discussions)
 
 ---
 

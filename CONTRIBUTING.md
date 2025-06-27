@@ -47,7 +47,7 @@ Enhancement suggestions are tracked as GitHub issues. When creating an enhanceme
 
 1. **Fork and clone the repository**
    ```bash
-   git clone https://github.com/qyhohh/napari-nifti-viewer.git
+   git clone https://github.com/yohanchiu/napari-nifti-viewer.git
    cd napari-nifti-viewer
    ```
 

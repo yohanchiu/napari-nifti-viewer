@@ -68,4 +68,4 @@ The plugin is designed for researchers, medical professionals, and anyone workin
 
 ---
 
-For older versions and detailed technical changes, see the [Git commit history](https://github.com/qyhohh/napari-nifti-viewer/commits). 
+For older versions and detailed technical changes, see the [Git commit history](https://github.com/yohanchiu/napari-nifti-viewer/commits). 

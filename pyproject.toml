@@ -57,11 +57,11 @@ test = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/qyhohh/napari-nifti-viewer"
-"Bug Tracker" = "https://github.com/qyhohh/napari-nifti-viewer/issues"
-"Documentation" = "https://github.com/qyhohh/napari-nifti-viewer/wiki"
-"Source Code" = "https://github.com/qyhohh/napari-nifti-viewer"
-"Changelog" = "https://github.com/qyhohh/napari-nifti-viewer/blob/main/CHANGELOG.md"
+"Homepage" = "https://github.com/yohanchiu/napari-nifti-viewer"
+"Bug Tracker" = "https://github.com/yohanchiu/napari-nifti-viewer/issues"
+"Documentation" = "https://github.com/yohanchiu/napari-nifti-viewer/wiki"
+"Source Code" = "https://github.com/yohanchiu/napari-nifti-viewer"
+"Changelog" = "https://github.com/yohanchiu/napari-nifti-viewer/blob/main/CHANGELOG.md"
 
 [project.entry-points."napari.manifest"]
 napari-nifti-viewer = "napari_nifti_viewer:napari.yaml"
