@@ -75,8 +75,8 @@ def create_test_nifti_data():
     nib.save(data_img, data_file)
     nib.save(labels_img, labels_file)
     
-    print(f"✅ Created test data: {data_file}")
-    print(f"✅ Created test labels: {labels_file}")
+    print(f"[PASS] Created test data: {data_file}")
+    print(f"[PASS] Created test labels: {labels_file}")
     print(f"   Data shape: {data.shape}")
     print(f"   Data type: {data.dtype}")
     print(f"   Data range: {data.min()} - {data.max()}")
@@ -88,11 +88,23 @@ def create_test_nifti_data():
 def test_plugin_loading():
     """Test if the plugin can be loaded properly"""
     try:
-        from napari_nifti_viewer._nifti_loader import load_nifti_file
-        print("✅ Plugin loading test: SUCCESS")
+        # Test core functionality without Qt dependencies
+        from napari_nifti_viewer._nifti_loader import NiftiLoader
+        print("[PASS] Plugin core loading test: SUCCESS")
+        
+        # Test Qt widget only if Qt is available
+        try:
+            from napari_nifti_viewer._widget import NiftiViewerWidget
+            print("[PASS] Plugin widget loading test: SUCCESS")
+        except ImportError as qt_error:
+            if "Qt" in str(qt_error):
+                print("[SKIP] Plugin widget loading test: SKIPPED (Qt not available)")
+            else:
+                raise qt_error
+        
         return True
-    except ImportError as e:
-        print(f"❌ Plugin loading test: FAILED - {e}")
+    except Exception as e:
+        print(f"[FAIL] Plugin loading test: FAILED - {e}")
         return False
 
 def test_nifti_loading(data_file):
@@ -102,21 +114,23 @@ def test_nifti_loading(data_file):
         data_file (str): Path to test data file
     """
     try:
-        from napari_nifti_viewer._nifti_loader import load_nifti_file
+        from napari_nifti_viewer._nifti_loader import NiftiLoader
+        
+        loader = NiftiLoader()
+        data, metadata = loader.load_file(data_file)
         
         print(f"\nTesting NIfTI loading with: {data_file}")
-        data, metadata = load_nifti_file(data_file)
         
-        print("✅ NIfTI loading test: SUCCESS")
+        print("[PASS] NIfTI loading test: SUCCESS")
         print(f"   Loaded data shape: {data.shape}")
         print(f"   Metadata keys: {len(metadata)} items")
-        print(f"   Has header info: {'nifti_header' in metadata}")
+        print(f"   Has header info: {'header' in metadata}")
         print(f"   Has file info: {'file_info' in metadata}")
         
         return True
         
     except Exception as e:
-        print(f"❌ NIfTI loading test: FAILED - {e}")
+        print(f"[FAIL] NIfTI loading test: FAILED - {e}")
         return False
 
 def test_label_detection(labels_file):
@@ -126,22 +140,23 @@ def test_label_detection(labels_file):
         labels_file (str): Path to test labels file  
     """
     try:
-        from napari_nifti_viewer._nifti_loader import load_nifti_file
+        from napari_nifti_viewer._nifti_loader import NiftiLoader
         
         print(f"\nTesting label detection with: {labels_file}")
-        data, metadata = load_nifti_file(labels_file)
+        loader = NiftiLoader()
+        data, metadata = loader.load_file(labels_file)
         
-        is_labels = metadata.get('analysis', {}).get('is_labels', False)
-        unique_values = metadata.get('analysis', {}).get('unique_values', [])
+        is_labels = metadata.get('labels', {}).get('is_likely_labels', False)
+        unique_values = metadata.get('labels', {}).get('unique_values', [])
         
-        print("✅ Label detection test: SUCCESS")
+        print("[PASS] Label detection test: SUCCESS")
         print(f"   Detected as labels: {is_labels}")
         print(f"   Unique values: {unique_values}")
         
         return True
         
     except Exception as e:
-        print(f"❌ Label detection test: FAILED - {e}")
+        print(f"[FAIL] Label detection test: FAILED - {e}")
         return False
 
 def main():
@@ -152,14 +167,14 @@ def main():
     
     # Test 1: Plugin loading
     if not test_plugin_loading():
-        print("\n❌ Cannot proceed - plugin loading failed")
+        print("\n[FAIL] Cannot proceed - plugin loading failed")
         return
     
     # Test 2: Create test data
     try:
         data_file, labels_file = create_test_nifti_data()
     except Exception as e:
-        print(f"\n❌ Failed to create test data: {e}")
+        print(f"\n[FAIL] Failed to create test data: {e}")
         return
     
     # Test 3: NIfTI loading
