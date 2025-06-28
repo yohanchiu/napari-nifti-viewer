@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "napari-nifti-viewer"
-version = "0.1.1"
+version = "0.1.2"
 description = "A comprehensive napari plugin for NIfTI file analysis and visualization"
 readme = "README.md"
 license = {text = "MIT"}

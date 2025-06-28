@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2024-12-19
+
+### Fixed
+- **CI/CD Issues**: Complete resolution of GitHub Actions test failures
+  - Fixed Qt dependency issues in testing environment
+  - Added proper headless testing support with xvfb
+  - Resolved pytest command not found errors
+  - Fixed Ubuntu package installation issues
+- **Code Quality**: Major improvements to code standards
+  - Removed unused imports (F401 errors)
+  - Fixed bare except clauses with specific exception handling
+  - Applied black code formatting consistently
+  - Reduced flake8 errors from 50+ to minor style issues
+- **Testing Infrastructure**: Enhanced test coverage and reliability
+  - Created Qt-independent test suite
+  - Added comprehensive core functionality tests
+  - Implemented isolated testing without external dependencies
+  - All tests now pass on all platforms (Ubuntu, Windows, macOS)
+
+### Changed
+- **Test Architecture**: Redesigned testing approach for better CI compatibility
+- **Error Handling**: Improved exception handling in extension data parsing
+- **Import Organization**: Cleaned up module imports following best practices
+- **Code Style**: Applied consistent formatting across all Python files
+
+### Technical Improvements
+- Added xvfb support for headless Qt testing in Linux CI
+- Implemented platform-specific test execution strategies
+- Enhanced pytest configuration for better test discovery
+- Improved GitHub Actions workflow reliability
+
 ## [0.1.1] - 2024-06-28
 
 ### Changed
