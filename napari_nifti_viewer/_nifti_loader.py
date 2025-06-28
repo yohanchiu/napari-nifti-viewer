@@ -1,14 +1,13 @@
 import json
-import os
 from pathlib import Path
-from typing import Any, Dict, List, Optional, Tuple, Union
+from typing import Dict, List, Tuple, Union
 
 import nibabel as nib
 import numpy as np
 
 
 class NiftiLoader:
-    """Specialized loader for NIfTI files, extracting data, metadata, labels, etc."""
+    """Specialized loader for NIfTI files, extracting data, metadata, etc."""
 
     def __init__(self):
         self.supported_formats = {'.nii', '.nii.gz'}
@@ -31,7 +30,7 @@ class NiftiLoader:
         # Check file format
         if not self._is_nifti_file(file_path):
             raise ValueError(
-                f"Unsupported file format, only .nii and .nii.gz are supported"
+                "Unsupported file format, only .nii and .nii.gz are supported"
             )
 
         # Load NIfTI file
@@ -314,7 +313,7 @@ class NiftiLoader:
                         ext_info['edata'] = ext['edata'].decode(
                             'utf-8', errors='ignore'
                         )
-                    except:
+                    except (UnicodeDecodeError, AttributeError):
                         ext_info['edata'] = f"Binary data (length: {len(ext['edata'])})"
 
                 extensions.append(ext_info)

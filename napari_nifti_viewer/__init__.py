@@ -1,7 +1,7 @@
 import logging
 import os
 import sys
-from pathlib import Path
+import warnings
 
 if sys.platform == 'darwin':
     os.environ['QT_MAC_WANTS_LAYER'] = '1'
@@ -13,8 +13,6 @@ if sys.platform == 'darwin':
             )
 
     logging.getLogger().addFilter(QtWarningFilter())
-
-    import warnings
 
     warnings.filterwarnings("ignore", message="Layer-backing is always enabled")
 

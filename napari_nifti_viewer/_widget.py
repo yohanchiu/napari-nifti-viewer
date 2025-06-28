@@ -1,9 +1,7 @@
 import os
 import sys
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple, Union
 
-import napari
 import numpy as np
 from qtpy.QtCore import Qt
 from qtpy.QtWidgets import (
@@ -14,7 +12,6 @@ from qtpy.QtWidgets import (
     QLineEdit,
     QMessageBox,
     QPushButton,
-    QScrollArea,
     QSplitter,
     QTableWidget,
     QTableWidgetItem,
