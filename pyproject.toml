@@ -4,15 +4,15 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "napari-nifti-viewer"
-version = "0.1.0"
+version = "0.1.1"
 description = "A comprehensive napari plugin for NIfTI file analysis and visualization"
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Yohanchiu", email = "qyhohh@163.com"}
 ]
 maintainers = [
-    {name = "Your Name", email = "your.email@example.com"}
+    {name = "Yohanchiu", email = "qyhohh@163.com"}
 ]
 keywords = ["napari", "nifti", "neuroimaging", "medical imaging", "visualization", "plugin"]
 classifiers = [

@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2024-06-28
+
+### Changed
+- Updated author information in pyproject.toml
+- Fixed configuration for PyPI publication
+- Improved package metadata
+
 ## [0.1.0] - 2024-01-XX
 
 ### Added

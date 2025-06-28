@@ -11,7 +11,7 @@ def read_readme():
 
 setup(
     name="napari-nifti-viewer",
-    version="0.1.0",
+    version="0.1.1",
     author="Yohanchiu",
     author_email="qyhohh@163.com",
     description="A comprehensive napari plugin for NIfTI file analysis and visualization",
